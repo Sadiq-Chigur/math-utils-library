@@ -31,4 +31,11 @@ jobs:
         run: ./gradlew publish
         env:
           GITHUB_ACTOR: ${{ github.actor }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_Token }}
+
+      - name: Trigger Renovate in consumer repo
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.PAT_Token }}
+          repository: Sadiq-Chigur/sample-consumer2
+          event-type: connector-published

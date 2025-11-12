@@ -1,0 +1,4 @@
+{
+  "enabledManagers": ["gradle"],
+  "extends": ["config:base"]
+}
