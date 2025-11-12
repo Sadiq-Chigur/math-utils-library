@@ -30,7 +30,7 @@ jobs:
       - name: Publish
         run: ./gradlew publish
         env:
-          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_ACTOR: ${{ secrets.USER_GITHUB }}
           GITHUB_TOKEN: ${{ secrets.PAT_Token }}
 
       - name: Trigger Renovate in consumer repo
