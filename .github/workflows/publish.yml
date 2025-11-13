@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
 
-    workflow_dispatch:  # for manual trigger
+  workflow_dispatch:  # for manual trigger
 
 permissions:
   contents: read
@@ -47,4 +47,3 @@ jobs:
             -d '{"event_type":"dependency_update","client_payload":{"version":"'"$VERSION"'"}}'
 
           
-            
