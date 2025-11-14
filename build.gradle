@@ -33,3 +33,11 @@ publishing {
         }
     }
 }
+
+tasks.register('printVersion') {
+    group = 'help'
+    description = 'Prints the project version to stdout'
+    doLast {
+        println project.version
+    }
+}
