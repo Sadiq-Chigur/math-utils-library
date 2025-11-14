@@ -4,7 +4,9 @@ plugins {
 }
 
 group = "com.example"
-version = "1.0.0-${System.getenv("GIT_SHORT_SHA") ?: "local"}"
+
+def shortSha = System.getenv("GIT_SHORT_SHA") ?: "local"
+version = "1.0.0-${shortSha}"
 
 repositories {
     mavenCentral()
@@ -15,7 +17,6 @@ publishing {
         maven(MavenPublication) {
             groupId = 'com.example.sadiqchigurs'
             artifactId = 'math-utils-library'
-            version = '1.0.0'  // Use proper version, not '1.0.0-local'
             
             from components.java
         }
