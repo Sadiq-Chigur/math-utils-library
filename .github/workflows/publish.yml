@@ -29,6 +29,13 @@ jobs:
       - name: Get short SHA
         run: echo "GIT_SHORT_SHA=$(git rev-parse --short=7 HEAD)" >> $GITHUB_ENV
 
+      - name: Get project version
+        id: get_version
+        run: |
+          VERSION=$(./gradlew -q printVersion)
+          # export for subsequent steps
+          echo "PROJECT_VERSION=$VERSION" >> $GITHUB_ENV
+
       - name: Publish
         run: ./gradlew publish
         env:
